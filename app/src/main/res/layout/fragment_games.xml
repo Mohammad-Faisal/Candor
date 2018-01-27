@@ -1,0 +1,100 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/containerview">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+            <Button
+                android:id="@+id/play"
+                android:layout_width="300dp"
+                android:textColor="#000"
+
+                android:layout_height="65dp"
+                android:layout_alignParentTop="true"
+
+
+                android:layout_centerHorizontal="true"
+
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/white_onclick_grey"
+
+
+                android:text="Play"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
+
+            <Button
+                android:id="@+id/game_rules"
+                android:layout_width="300dp"
+                android:textColor="#000"
+
+                android:layout_height="65dp"
+                android:layout_below="@+id/play"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/white_onclick_grey"
+                android:text="Game Story"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
+
+            <Button
+                android:text="Score"
+                android:layout_width="300dp"
+                android:textColor="#000"
+
+                android:layout_centerHorizontal="true"
+                android:layout_height="65dp"
+                android:id="@+id/score1"
+                android:layout_below="@+id/game_rules"
+
+                android:textStyle="normal|bold"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:background="@drawable/white_onclick_grey"
+                />
+
+            <Button
+                android:text="Motivation"
+                android:layout_width="300dp"
+                android:textColor="#000"
+
+                android:layout_centerHorizontal="true"
+                android:layout_height="65dp"
+                android:id="@+id/motivation"
+                android:layout_below="@+id/score1"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+
+                android:textStyle="normal|bold"
+                android:textSize="20sp"
+                android:background="@drawable/white_onclick_grey"
+             />
+
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

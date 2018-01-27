@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.candor.candor.home.HomeFragment">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_fragment_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"></android.support.v7.widget.RecyclerView>
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/home_post_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/color2"
+        android:src="@drawable/ic_add_post_white"
+        app:backgroundTint="@android:color/background_light"
+        app:layout_anchor="@+id/home_fragment_recyclerView"
+        app:layout_anchorGravity="left|bottom"/>
+
+
+
+
+</RelativeLayout>
+

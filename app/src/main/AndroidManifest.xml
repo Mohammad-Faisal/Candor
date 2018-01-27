@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.candor.candor">
+
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".tools.Candor"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+
+        <service android:name=".tools.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".initialize.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".initialize.StartActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".initialize.RegisterActivity"
+            android:parentActivityName=".initialize.StartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".initialize.LoginActivity"
+            android:parentActivityName=".initialize.StartActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".profile.SettingsActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:parentActivityName=".initialize.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="com.example.mohammadfaisal.chitchat.TARGET_NOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".chat.ChatActivity"
+            android:parentActivityName=".initialize.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".home.CreatePostActivity"
+            android:label="Dustbin"
+            android:screenOrientation = "portrait">
+
+        </activity>
+        <activity android:name=".game.GameActivity"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name=".game.StartingActivity">
+
+        </activity>
+        <activity android:name=".game.HighscoreActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity android:name=".game.GamemotivationActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity android:name=".map.SignInActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".map.MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+
+
+
+
+</manifest>

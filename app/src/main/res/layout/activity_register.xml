@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.candor.candor.initialize.RegisterActivity">
+
+    <include
+        android:id="@+id/register_toolbar"
+        layout="@layout/app_tool_bar"
+        ></include>
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="38dp"
+        android:background="?android:attr/colorControlActivated"
+        android:text="@string/register" />
+
+    <EditText
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/email_text_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="75dp"
+        android:ems="10"
+        android:hint="@string/display_name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/email_text_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/password_text_login"
+        android:layout_alignStart="@+id/name_text"
+        android:layout_marginBottom="45dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/password_text_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login_btn"
+        android:layout_alignStart="@+id/email_text_login"
+        android:layout_marginBottom="68dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/create_an_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/name_text"
+        android:layout_alignEnd="@+id/name_text"
+        android:layout_marginBottom="27dp"
+        android:text="@string/create_an_account"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:text="@string/create_an_account" />
+</RelativeLayout>

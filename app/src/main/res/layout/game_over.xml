@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="#ddffffff" 
+    >
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentTop="true"
+        android:background="#aa000000"
+		android:id="@+id/unnecessary"
+		android:layout_marginBottom="5dp"
+    />
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/education"
+		android:layout_below="@+id/unnecessary"
+		android:layout_marginBottom="5dp"
+		android:layout_marginTop="2dp"
+		android:gravity="center"
+		android:textColor="#091a35"
+		android:text="Don't throw your garbage in water."
+		android:textSize="15sp"
+		/>
+        
+	<TextView
+        android:id="@+id/score_view2"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Score : 0"
+        android:textColor="#333333"
+        android:textSize="27sp"
+		android:layout_below="@id/education"/>
+
+	<TextView
+	    android:id="@+id/best_view2"
+	    android:layout_width="80dp"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginTop="20dp"
+	    android:layout_marginRight="40dp"
+	    android:gravity="center"
+	    android:text="Best : 0"
+	    android:textColor="#333333"
+	    android:textSize="27sp"
+		android:layout_below="@id/education"/>
+	<ImageButton
+	    android:id="@+id/btn_gameover"
+	    android:layout_width="50dp"
+	    android:layout_height="50dp"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:background="@android:drawable/ic_menu_rotate"
+		/>
+	
+</RelativeLayout>
