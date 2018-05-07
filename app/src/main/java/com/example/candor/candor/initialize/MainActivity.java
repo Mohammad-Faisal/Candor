@@ -1,11 +1,14 @@
 package com.example.candor.candor.initialize;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 
 
@@ -21,6 +24,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.candor.candor.CreatePostActivity;
 import com.example.candor.candor.friends.FriendsFragment;
 import com.example.candor.candor.R;
 import com.example.candor.candor.game.GamesFragment;
@@ -76,6 +80,10 @@ public class MainActivity extends AppCompatActivity implements FriendsFragment.O
 
     private CircleImageView mProfilePicToolbar;
 
+
+    private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
+    private boolean mLocationPermissionGranted;
+
     public int mLastDy = 0;
 
 
@@ -84,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements FriendsFragment.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        getLocationPermission();
 
         mAppBarLayout = findViewById(R.id.appBarLayout);
         //adding toolbar
@@ -108,6 +118,44 @@ public class MainActivity extends AppCompatActivity implements FriendsFragment.O
         //setting tabs
         mTabLayout = findViewById(R.id.main_tabs);
         mTabLayout.setupWithViewPager(mViewPager);
+
+
+        final FloatingActionButton mAddPost= findViewById(R.id.home_post_edit_button);
+        mAddPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: Clicked !!!!!!");
+                Intent createPostIntent = new Intent(MainActivity.this, CreatePostActivity.class);
+                createPostIntent.putExtra("userID" , mUserID);
+                startActivity(createPostIntent);
+            }
+        });
+
+
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int position = tab.getPosition();
+                if(position == 0){
+                    mAddPost.setVisibility(View.VISIBLE);
+                } else if(position == 1){
+                    mAddPost.setVisibility(View.INVISIBLE);
+                }else{
+                    mAddPost.setVisibility(View.INVISIBLE);
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+
 
         //firebase
         mAuth = FirebaseAuth.getInstance();
@@ -248,6 +296,19 @@ public class MainActivity extends AppCompatActivity implements FriendsFragment.O
                 startActivity(intent);
             }
         });
+    }
+
+
+    private void getLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mLocationPermissionGranted = true;
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+        }
     }
 
     @Override

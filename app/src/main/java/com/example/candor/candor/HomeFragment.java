@@ -28,6 +28,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -79,6 +80,7 @@ public class HomeFragment extends Fragment {
     private EditText mPostEditText;
     private Button mPostButton;
     FloatingActionButton mAddPost;
+    private Query mQuery;
 
 
 
@@ -116,6 +118,8 @@ public class HomeFragment extends Fragment {
         mPostsDatabaseReference.keepSynced(true);
         mUserDatabaseReference.keepSynced(true);
 
+        mQuery = mPostsDatabaseReference.orderByChild("time_stamp");
+
         mRootRef = FirebaseDatabase.getInstance().getReference();
         mPostStorageRef = FirebaseStorage.getInstance().getReference().child("posts");
 
@@ -123,23 +127,12 @@ public class HomeFragment extends Fragment {
 
 
         //------------ WIDGETS ---------------//
-        mAddPost= mMainView.findViewById(R.id.home_post_edit_button);
 
 
         //recycler view
         mHomeFragmentList = mMainView.findViewById(R.id.home_fragment_recyclerView);
         mHomeFragmentList.setHasFixedSize(true);
         mHomeFragmentList.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        mAddPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("Home Fragment  " , "Floating action button is clicked !!");
-                Intent createPostIntent = new Intent(getActivity(), CreatePostActivity.class);
-                createPostIntent.putExtra("userID" , mUserID);
-                startActivity(createPostIntent);
-            }
-        });
 
         return mMainView;
     }
@@ -164,7 +157,7 @@ public class HomeFragment extends Fragment {
                 Posts.class,
                 R.layout.post_single,
                 HomeFragment.HomeViewHolder.class,
-                mPostsDatabaseReference
+                mQuery
         ) {
 
             @Override

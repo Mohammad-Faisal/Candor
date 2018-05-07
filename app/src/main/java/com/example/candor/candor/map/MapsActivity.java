@@ -94,7 +94,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int DEFAULT_ZOOM = 15;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
-
     private FusedLocationProviderClient mFusedLocationProviderClient;
 
 
@@ -129,12 +128,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     String address;
 
     List<Marker> markerList = new ArrayList<Marker>();
-
-
-
-
-
-
 
 
 
@@ -185,8 +178,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onResume();
         Log.d(TAG, "onResume: suru");
         
-      //  changeinlocationdata();
-
 
     }
 
@@ -203,7 +194,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
-// Check for the integer request code originally supplied to startResolutionForResult().
             case REQUEST_CHECK_SETTINGS:
                 switch (resultCode) {
                     case Activity.RESULT_OK:
@@ -229,21 +219,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dhaka, DEFAULT_ZOOM));
 
         mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(MapsActivity.this));
-
-
-
         getLocationPermission();
-
         updateLocationUI();
-
         settingsRequest2(MapsActivity.this);
-
         changeinlocationdata();
-
-
-
-
-
         setvalue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -409,8 +388,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             if(uid1!=""){
                                 Log.d(TAG, "onDataChange: kebol3");
-                                String snippet = "\n"+"The social hero: "+author1 +"\n"+
-                                        "\n"+"Address: " + place1 + "\n" +
+                                String snippet = "\n"+"Social hero: "+author1 +"\n"+
+                                        "\n"+"Address: " + place1 + "\n" +"\n" +
                                         "Water level: " + water1 + "\n";
 
                                 MarkerOptions options = new MarkerOptions()
@@ -491,8 +470,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                         Log.d("vetore1", dataSnapshot.getKey());
 
-
-                        // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out
                             Log.e(TAG, "User " + userId + " is unexpectedly null");
@@ -505,8 +482,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             usernameglobal=user.name;
                         }
 
-                        // Finish this Activity, back to the stream
-                        // [END_EXCLUDE]
                     }
 
                     @Override
@@ -516,13 +491,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     }
                 });
-
-
-
-
-
-
-        // [END single_value_read]
     }
 
 
@@ -531,19 +499,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     private void getDeviceLocation() {
-        /*
-         * Get the best and most recent location of the device, which may be null in rare
-         * cases when a location is not available.
-         */
         Log.d(TAG,"getdevice1");
 
         try {
             if (mLocationPermissionGranted) {
                 Log.d(TAG,"getdevice2");
-
-
-
-
                 Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
                 locationResult.addOnSuccessListener(this, new OnSuccessListener<Location>() {
                     @Override
@@ -562,16 +522,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             Log.d(TAG,"getdevice5");
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dhaka, DEFAULT_ZOOM));
                             mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
-
-
-
-
-
-
-
-
-
                         }
                     }
                 });
@@ -584,11 +534,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void getLocationPermission() {
-        /*
-         * Request location permission, so that we can get the location of the
-         * device. The result of the permission request is handled by a callback,
-         * onRequestPermissionsResult.
-         */
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {

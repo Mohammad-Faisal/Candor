@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
+    android:fitsSystemWindows="true"
     tools:context="com.example.candor.candor.initialize.MainActivity">
 
 
@@ -47,6 +48,19 @@
         app:layout_anchor="@+id/tabPager"
         app:layout_anchorGravity="right|bottom" />
 
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/home_post_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/color2"
+        android:src="@drawable/ic_add_post_white"
+        app:backgroundTint="@android:color/background_light"
+        app:layout_anchor="@+id/tabPager"
+        app:layout_anchorGravity="left|bottom"/>
 
 
 

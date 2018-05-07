@@ -33,6 +33,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -133,7 +134,9 @@ public class CreatePostActivity extends AppCompatActivity {
                     mProgress.show();
 
 
-                    StorageReference imageFilePath = mPostsStorageRef.child(mUserID).child(mUserID+".jpg");
+                    String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+
+                    StorageReference imageFilePath = mPostsStorageRef.child(mUserID).child(mUserID+"_"+timeStamp+".jpg");
                     imageFilePath.putFile(selectedImageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -142,7 +145,8 @@ public class CreatePostActivity extends AppCompatActivity {
                                 final String image_download_url  = downloadUrlImage.toString();
                                 //--------IMAGE UPLOADING IS DONE -----//
                                 final String post_push_id = mRootRef.child("posts").push().getKey();
-                                final Posts post = new Posts(mUserID, cur_time_and_date ,caption ,image_download_url,"0","Dhaka , Bangladesh",post_push_id);
+                                int time = (int) (System.currentTimeMillis());
+                                final Posts post = new Posts(mUserID, cur_time_and_date ,caption ,image_download_url,"0","Dhaka , Bangladesh",post_push_id , -time);
                                 mRootRef.child("posts").child(post_push_id).setValue(post).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {

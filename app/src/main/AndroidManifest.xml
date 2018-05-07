@@ -34,6 +34,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".initialize.MainActivity"
@@ -79,6 +82,12 @@
             android:screenOrientation = "portrait">
 
         </activity>
+
+
+        <activity android:name="com.example.candor.candor.CreatePostActivity"
+            android:label="Dustbin"
+            android:screenOrientation = "portrait"/>
+
         <activity android:name=".game.GameActivity"
             android:screenOrientation="portrait"
             >

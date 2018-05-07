@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:textAlignment="center"
         android:text="@string/kotokhani"/>
 
     <RadioGroup
@@ -33,7 +34,7 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_marker0"
+                android:src="@drawable/ic_marker1"
                 android:layout_weight="20"
                 android:layout_marginRight="5dp"/>
         </LinearLayout>
@@ -53,7 +54,7 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_marker1"
+                android:src="@drawable/ic_marker0"
                 android:layout_weight="20"
                 android:layout_marginRight="5dp"
                 />
@@ -120,10 +121,12 @@
 
 
         <Button
+            android:fontFamily="@font/averia_libre"
             android:id="@+id/dialog_ok"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#3cea0b"
+            android:textColor="@color/White"
+            android:background="@color/Black"
             android:text="Ok"/>
 
 

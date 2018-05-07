@@ -27,12 +27,29 @@
                 android:layout_marginTop="5dp"
                 android:elevation="30dp"
                 android:id="@+id/cardView2">
+
+
+
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:focusable="true"
                     android:focusableInTouchMode="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/nunito"
+                        android:gravity="center"
+                        android:text="Create A New Post"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -116,6 +133,7 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
             <Button
+                android:textAllCaps="false"
                 android:id="@+id/create_post_post_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,7 +141,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="@string/post"
+                android:text="Post"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>

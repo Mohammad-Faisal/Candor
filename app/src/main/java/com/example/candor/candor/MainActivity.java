@@ -109,18 +109,19 @@ public class MainActivity extends AppCompatActivity implements FriendsFragment.O
         mTabLayout.setupWithViewPager(mViewPager);
 
 
-        /*mAddPost= findViewById(R.id.home_post_edit_button);
+        mAddPost= findViewById(R.id.home_post_edit_button);
         mAddPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: Clicked !!!!!!");
                 Intent createPostIntent = new Intent(MainActivity.this, CreatePostActivity.class);
                 createPostIntent.putExtra("userID" , mUserID);
                 startActivity(createPostIntent);
             }
         });
-*/
 
-        /*mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int position = tab.getPosition();
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements FriendsFragment.O
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-        });*/
+        });
 
 
 

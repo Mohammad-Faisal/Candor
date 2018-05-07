@@ -114,7 +114,7 @@ public class HomeFragment extends Fragment {
         mPostsDatabaseReference.keepSynced(true);
         mUserDatabaseReference.keepSynced(true);
 
-        mQuery = mPostsDatabaseReference.orderByChild("timestamp");
+        mQuery = mPostsDatabaseReference.orderByChild("time_stamp");
 
         mRootRef = FirebaseDatabase.getInstance().getReference();
         mPostStorageRef = FirebaseStorage.getInstance().getReference().child("posts");

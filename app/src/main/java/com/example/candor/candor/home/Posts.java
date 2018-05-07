@@ -14,6 +14,7 @@ public class Posts {
     private String thumbs_up_cnt;
     private String location;
     private String post_push_id;
+    private int timestamp;
 
     public Posts() {
     }
@@ -26,7 +27,7 @@ public class Posts {
         this.post_push_id = post_push_id;
     }
 
-    public Posts(String uid, String time_and_date, String caption, String post_image_url, String thumbs_up_cnt, String  location , String post_push_id) {
+    public Posts(String uid, String time_and_date, String caption, String post_image_url, String thumbs_up_cnt, String  location , String post_push_id , int timestamp) {
 
         this.uid = uid;
         this.time_and_date = time_and_date;
@@ -35,6 +36,7 @@ public class Posts {
         this.thumbs_up_cnt = thumbs_up_cnt;
         this.location = location;
         this.post_push_id = post_push_id;
+        this.timestamp = timestamp;
     }
 
 
